@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FCC Weather App</title>
+</head>
+<body>
+
+
+
+<div class="container-fluid">
+
+  
+  <div class="row-fluid">
+    <div id="weather-app">
+    <header>
+      <h1>Weather App</h1>
+    </header> 
+   <!-- 
+    <button onclick="showLocation()">Test</button>
+    <button onclick="testThis()">JSON </button>
+    <button onclick="getInformation()">Test JSON</button>
+    -->
+    
+    <!-- 
+    <p>Current Location: </p>
+    <p>Latitude: <span id ="lat"><span></p>
+    <p>Longitude: <span id="long"</span></p>
+    <p>City: </p>
+      <p>Zip Code:  </p> -->
+      
+      <div class="row-fluid ">
+        <div id="weather-info" class="col-centered">
+        <h2>Current Conditions</h2>
+          <span id="conditions"></span>
+          <img id="weather-icon" src="http://openweathermap.org/img/w/" alt="Current Conditions" />
+          
+          <h3>Temperature: <span id="temp"></span></h3>
+          <h3>City: <span id="city"></span><span id="state"></span></h3>
+          <h3>Zip Code: <span id="zip"></span></h3>
+        <p id="celcius" class="temparatures"></p>
+        <p id="farenheit" class="temparatures"></p>  
+          
+          
+          <label for="slider">Flip Switch</label>
+          
+          <select name="slider" id="slider" data-role="slider">
+            <option value="farenheit">&deg;F</option>
+            <option value="celcius">&deg;C</option>
+          </select>  
+   
+
+          
+          
+        </div> <!-- End Column -->   
+       </div> <!-- End weather info-->   
+     
+ 
+    </div>  <!-- End weather app -->
+  </div> <!-- End row -->
+</div> <!-- End Container -->
+
+  
+</body>
+</html>

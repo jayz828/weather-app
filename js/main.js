@@ -3,9 +3,16 @@
 
 
 
+// Eventlisteners
+
+
+
+// Program Start
+
+
 getLocation();
-var zipCode;
-var city;
+// toggleSwitch();
+
 
 
 function getLocation() {
@@ -20,12 +27,24 @@ function getLocation() {
 
             var savedZip;
             var savedCity;
+            var savedCountry;
+            var savedCountryCode;
+            var savedLatitude;
+            var savedLongitute;
         
             json = JSON.parse(xhr.responseText);
 
             savedZip = json.zip;
             savedCity = json.city;
-            saveLocation(savedZip, savedCity);
+            savedCountry = json.country;
+            savedCountryCode = json.countryCode;
+            savedLatitude = json.lat;
+            savedLongitute = json.lon;
+
+            console.log(savedLatitude);
+            console.log(savedLongitute);
+
+            saveLocation(savedZip, savedCity, savedCountry,savedCountryCode, savedLatitude,savedLongitute);
 
 
         }
@@ -41,14 +60,124 @@ function getLocation() {
 
 
 
-function saveLocation(zip, cityFromJson) {
-  zipCode = zip;
-  city = cityFromJson;
+
+
+function saveLocation(zip, cityFromJson, countryFromJson, ccFromJson, latFromJson, lonFromJson) {
+  
+  var zipCode = zip;
+  var city = cityFromJson;
+  var country = countryFromJson;
+  var countryCode = ccFromJson;
+  var lat = latFromJson;
+  var lon = lonFromJson;
+
+  var zipId = document.getElementById("zip");
+  var cityId = document.getElementById("city");
+  var countryId = document.getElementById("country");
+  var countryCodeId = document.getElementById("country-code");
+
+
+  // zipCode = zip;
+  // city = cityFromJson;
   console.log(zipCode);
   console.log(city);
 
+  zipId.innerHTML = zip;
+  cityId.innerHTML = city;
+  countryCodeId.innerHTML = countryCode;
+  countryId.innerHTML = country;
+
+
+  getWeather(lat, lon);
+
 
 }
+
+function getWeather(lat, lon) {
+  var kelvinTemp
+  var farenheit;
+  var celcius;
+  var weatherIcon;
+  var condition;
+  var timeOfDay;
+  var weatherType;
+  
+  
+      // api.openweathermap.org/data/2.5/weather?zip=94040,us
+      // api.openweathermap.org/data/2.5/weather?lat=35&lon=139
+  
+  
+    console.log('weather function');
+    console.log('test ok');
+    
+  
+  var xhr = new XMLHttpRequest();
+  var json;
+
+
+    xhr.onreadystatechange = function() {
+
+        if (xhr.readyState === 4 && xhr.status === 200){
+
+            var tempId = document.getElementById("temp");
+
+
+            json = JSON.parse(xhr.responseText);
+            console.log(json);
+
+            kelvinTemp = json.main.temp;
+            farenheit = (kelvinTemp * (9/5)) - 459.67;
+            farenheit = Math.round(farenheit);
+            tempId.innerHTML = farenheit;
+            console.log(farenheit);
+ 
+
+
+        }
+
+    };
+
+    xhr.open("GET","http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +"&appid=b5333a4e0061fe95658cb4c9637910bc", true);
+    xhr.send(); 
+
+
+}
+
+
+function convertDegrees(toggleValue,temp) {
+
+  switch (toggleValue) {
+    case "°F":
+      var getFarenheit = $("#farenheit").text();
+      $("#temp").html(getFarenheit + toggleValue);
+      
+      break;
+    case "°C":
+      var getCelcius = $("#celcius").text();
+      $("#temp").html(getCelcius + toggleValue);
+      break;
+    default: 
+      alert('nothing');
+  }
+
+}
+
+
+function toggleSwitch() {
+  
+    $("#slider").change(function() {
+
+  
+  var currentSelection =  $("#slider option:selected" ).text();
+  var currentTemp = $("#temp").html();
+  convertDegrees(currentSelection,currentTemp);
+  
+  
+  });
+  
+  
+}
+
 
 
 })();

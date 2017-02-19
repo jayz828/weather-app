@@ -31,11 +31,12 @@ function getLocation() {
             var savedCountryCode;
             var savedLatitude;
             var savedLongitute;
+
         
             json = JSON.parse(xhr.responseText);
 
             savedZip = json.zip;
-            savedCity = json.city;
+            savedCity = json.city + "," + json.region;
             savedCountry = json.country;
             savedCountryCode = json.countryCode;
             savedLatitude = json.lat;
@@ -120,6 +121,8 @@ function getWeather(lat, lon) {
         if (xhr.readyState === 4 && xhr.status === 200){
 
             var tempId = document.getElementById("temp");
+            var descId = document.getElementById("description");
+            var iconId = document.getElementById("icon");
 
 
             json = JSON.parse(xhr.responseText);
@@ -129,6 +132,8 @@ function getWeather(lat, lon) {
             farenheit = (kelvinTemp * (9/5)) - 459.67;
             farenheit = Math.round(farenheit);
             tempId.innerHTML = farenheit;
+            descId.innerHTML = json.weather[0].description;
+            iconId.src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png";
             console.log(farenheit);
  
 

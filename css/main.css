@@ -1,29 +1,41 @@
-body, html, .container-fluid {
+body, html {
   margin: 0;
   padding: 0;
   height: 100vh;
   background-color: white;
 }
 
+
+.clear-fix {
+  clear: both;
+}
+
+
+
 header {
   background-color: #1F57A9;;
   height: 15vh;
   width: 100%;
   font-family: 'Sigmar One', cursive;
+  color: white;
+  margin-top: -20px;
+  padding: 0;
   
 }
 
 h1 {
- color: white;
-  margin: 0px 50px;
-  padding: 9px;
+  color: white;
+/*  margin: 0px 50px;
+  padding: 9px;*/
+  margin: 0;
+  padding: 0;
   font-size: 10vh;
   
     
 }
 
 #weather-info{
-  width: 42%;
+  width: 50%;
   height: 85vh;
   background-color: white;
   
@@ -35,6 +47,24 @@ h1 {
   margin: auto;
 }
 
+#main-display {
+  display: inline;
+}
+
+  #main-display > .well {
+    float: left;
+  }
+
 .temparatures {
   visibility: hidden;
 }
+
+
+/*#weather-conditions {
+  display: inline;
+}*/
+
+/*#icon {
+  float: left;
+  margin-top: -5px;
+}*/

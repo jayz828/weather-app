@@ -2,12 +2,18 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-color: white;
+  /*background-color: white;*/
+
+
 }
 
 
 .clear-fix {
   clear: both;
+}
+
+.img-center {
+  margin: 0 auto;
 }
 
 
@@ -20,6 +26,7 @@ header {
   color: white;
   margin-top: -20px;
   padding: 0;
+
   
 }
 
@@ -58,6 +65,18 @@ h1 {
 .temparatures {
   visibility: hidden;
 }
+
+
+.container-fluid {
+}
+
+
+.container-background {
+  background: url("../images/cloudy-night.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+
 
 
 /*#weather-conditions {

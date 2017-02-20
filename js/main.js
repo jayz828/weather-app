@@ -3,6 +3,11 @@
 
 
 
+// weather object
+
+
+
+
 // Eventlisteners
 
 
@@ -11,7 +16,7 @@
 
 
 getLocation();
-// toggleSwitch();
+toggleSwitch();
 
 
 
@@ -168,19 +173,58 @@ function convertDegrees(toggleValue,temp) {
 }
 
 
+// WORK WITH FUNCTION BELOW TO GET THINGS WORKING
+
+
 function toggleSwitch() {
+
   
     $("#slider").change(function() {
-
+      console.log("slider");
   
   var currentSelection =  $("#slider option:selected" ).text();
   var currentTemp = $("#temp").html();
+  var unitMeasure = document.getElementById("unit-measure");
+  unitMeasure.innerHTML ="";
+
+  // var currentTemp = document.getElementById("temp-unit").innerHTML;
+  console.log(currentTemp + "test");
   convertDegrees(currentSelection,currentTemp);
   
   
   });
   
   
+}
+
+
+
+//  NEED TO FIGURE OUT HOW TO COVERT DEGREES
+
+function convertDegrees(toggleValue,temp) {
+
+    var currentTemp = document.getElementById("temp").innerHTML;
+
+
+  switch (toggleValue) {
+    case "°F":
+      var getFarenheit = $("#farenheit").text();
+      $("#temp").html(currentTemp + toggleValue);
+      
+      break;
+    case "°C":
+      var getCelcius = $("#celcius").text();
+      $("#temp").html(currentTemp + toggleValue);
+      break;
+    default: 
+      alert('nothing');
+  }
+
+}
+
+
+function changeBackground() {
+
 }
 
 

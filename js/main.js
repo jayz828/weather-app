@@ -144,6 +144,7 @@ function getWeather(lat, lon) {
             var iconId = document.getElementById("icon");
             var celsiusId = document.getElementById("celsius-ajax");
             var farenheitId = document.getElementById("farenheit-ajax");
+            var icon;
 
 
 
@@ -164,10 +165,14 @@ function getWeather(lat, lon) {
             // farenheit = Math.round(farenheit);
             tempId.innerHTML = currentWeather.farenheit;
             farenheitId.innerHTML = currentWeather.farenheit;
+            icon = json.weather[0].icon;
             descId.innerHTML = json.weather[0].description;
             celsiusId.innerHTML = currentWeather.celsius;
             iconId.src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png";
-            console.log(farenheit);
+          
+
+
+            changeBackground(icon);
 
     
  
@@ -238,7 +243,26 @@ function toggleSwitch() {
 
 
 
-function changeBackground() {
+function changeBackground(weatherIcon) {
+
+  console.log(weatherIcon);
+
+  var background = document.getElementsByClassName("container-background");
+
+
+  switch (weatherIcon) {
+  case "01n":
+    background[0].style.backgroundImage = "url('images/clear-night.jpg')";
+    break;
+  case 'Apples':
+    console.log('Apples are $0.32 a pound.');
+    break;
+  default:
+    console.log('Sorry, we are out of ' + expr + '.');
+}
+
+
+
 
 }
 

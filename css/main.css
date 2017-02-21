@@ -47,7 +47,10 @@ h1 {
   background-color: white;
   
   text-align: left;
-  padding: 5%;
+  padding-top: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+
 }
 .col-centered {
   float: none;

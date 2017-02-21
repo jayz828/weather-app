@@ -6,6 +6,20 @@
 // weather object
 
 
+function weather(kelvin) {
+  this.kelvin = kelvin;
+  this.farenheit = Math.round((kelvin * (9/5)) - 459.67);
+  this.celsius = Math.round(kelvin - 273.15);
+
+
+
+
+}
+
+
+
+var test;
+
 
 
 // Eventlisteners
@@ -128,18 +142,34 @@ function getWeather(lat, lon) {
             var tempId = document.getElementById("temp");
             var descId = document.getElementById("description");
             var iconId = document.getElementById("icon");
+            var celsiusId = document.getElementById("celsius-ajax");
+            var farenheitId = document.getElementById("farenheit-ajax");
+
+
 
 
             json = JSON.parse(xhr.responseText);
             console.log(json);
 
+
+            
+
             kelvinTemp = json.main.temp;
-            farenheit = (kelvinTemp * (9/5)) - 459.67;
-            farenheit = Math.round(farenheit);
-            tempId.innerHTML = farenheit;
+            var currentWeather = new weather(kelvinTemp);
+
+            console.log(currentWeather.kelvin);
+
+
+            // farenheit = (kelvinTemp * (9/5)) - 459.67;
+            // farenheit = Math.round(farenheit);
+            tempId.innerHTML = currentWeather.farenheit;
+            farenheitId.innerHTML = currentWeather.farenheit;
             descId.innerHTML = json.weather[0].description;
+            celsiusId.innerHTML = currentWeather.celsius;
             iconId.src = "http://openweathermap.org/img/w/" + json.weather[0].icon + ".png";
             console.log(farenheit);
+
+    
  
 
 
@@ -156,15 +186,22 @@ function getWeather(lat, lon) {
 
 function convertDegrees(toggleValue,temp) {
 
+    console.log(test + 'work');
+
+    var tempId = document.getElementById("temp");
+
+    var farId = document.getElementById("farenheit-ajax");
+    var celId = document.getElementById("celsius-ajax");
+
   switch (toggleValue) {
     case "°F":
-      var getFarenheit = $("#farenheit").text();
-      $("#temp").html(getFarenheit + toggleValue);
+      // var getFarenheit = $("#farenheit").text();
+      tempId.innerHTML = farId.innerHTML + toggleValue;
+
       
       break;
     case "°C":
-      var getCelcius = $("#celcius").text();
-      $("#temp").html(getCelcius + toggleValue);
+      tempId.innerHTML = celId.innerHTML + toggleValue;
       break;
     default: 
       alert('nothing');
@@ -199,28 +236,6 @@ function toggleSwitch() {
 
 
 
-//  NEED TO FIGURE OUT HOW TO COVERT DEGREES
-
-function convertDegrees(toggleValue,temp) {
-
-    var currentTemp = document.getElementById("temp").innerHTML;
-
-
-  switch (toggleValue) {
-    case "°F":
-      var getFarenheit = $("#farenheit").text();
-      $("#temp").html(currentTemp + toggleValue);
-      
-      break;
-    case "°C":
-      var getCelcius = $("#celcius").text();
-      $("#temp").html(currentTemp + toggleValue);
-      break;
-    default: 
-      alert('nothing');
-  }
-
-}
 
 
 function changeBackground() {

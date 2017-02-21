@@ -76,6 +76,10 @@ h1 {
   background-size: cover;
 }
 
+.hide-ajax {
+  display: none;
+}
+
 
 
 

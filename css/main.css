@@ -75,12 +75,18 @@ h1 {
 
 
 .container-background {
-  background: url("../images/cloudy-night.jpg") no-repeat center center fixed;
+  background: url("../images/weather-default.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
 .hide-ajax {
   display: none;
+}
+
+
+.wells-center {
+  margin: 0 auto;
+
 }
 
 

@@ -251,14 +251,65 @@ function changeBackground(weatherIcon) {
 
 
   switch (weatherIcon) {
+    // Clear Night
   case "01n":
     background[0].style.backgroundImage = "url('images/clear-night.jpg')";
     break;
-  case 'Apples':
-    console.log('Apples are $0.32 a pound.');
+    // Cloudy night
+  case "02n":
+  case "03n":
+  case "04n":
+    background[0].style.backgroundImage = "url('images/cloudy-night.jpg')";
+    break;
+    // Rainy night
+  case "09n":
+  case "10n":
+
+    background[0].style.backgroundImage = "url('images/rain-night.jpg')";
+    break;
+    // Thunder night
+  case "11n":
+    background[0].style.backgroundImage = "url('images/thunder-night.jpg')";
+    break;
+    // Snow Night
+  case "13n":
+    background[0].style.backgroundImage = "url('images/snow-night.jpg')";
+    break;
+
+  case "50n":
+    background[0].style.backgroundImage = "url('images/mist-night.jpg')";
+    break;
+    // Clear Day
+  case "01d":
+    background[0].style.backgroundImage = "url('images/clear-day.jpg')";
+    break;
+    // Cloudy Day
+  case "02d":
+  case "03d":
+  case "04d":
+     background[0].style.backgroundImage = "url('images/clear-day.jpg')";    
+    break;
+    // Shower Day
+  case "09d":
+  case "10d":
+    background[0].style.backgroundImage = "url('images/shower-day.jpg')"; 
+    break;
+
+    // Thunderstorm day
+
+  case "11d":
+    background[0].style.backgroundImage = "url('images/thunder-day.jpg')"; 
+    break;
+   // Snow day
+   case "13d":
+    background[0].style.backgroundImage = "url('images/snow-day.jpg')"; 
+    break;
+   // Mist Day
+   case "50d":
+   background[0].style.backgroundImage = "url('images/mist-day.jpg')"; 
     break;
   default:
-    console.log('Sorry, we are out of ' + expr + '.');
+    console.log("missed one");
 }
 
 

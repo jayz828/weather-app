@@ -249,6 +249,8 @@ function changeBackground(weatherIcon) {
 
   var background = document.getElementsByClassName("container-background");
 
+  // var background = document.getElementsByTagName("body");
+
 
   switch (weatherIcon) {
     // Clear Night

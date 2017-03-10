@@ -7,7 +7,8 @@
 
   <link rel="stylesheet" href="css/main.css">
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
   <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
 
@@ -50,7 +51,7 @@
 
               <div id="main-display" class="row-fluid">
 
-                <div class="wells-center col-lg-12">
+                <div class="wells-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="well well-lg col-lg-5" >
                         <h4><span id="city"></span><span id="state"></span></h4>
 
@@ -74,10 +75,10 @@
 
           </div>
 
-          <h3>Country: <span id="country"></span></h3>
-          <h3>Country Code: <span id="country-code"></span></h3>
+          <h3 class="hidden">Country: <span id="country"></span></h3>
+          <h3 class="hidden">Country Code: <span id="country-code"></span></h3>
           
-          <h3>Zip Code: <span id="zip"></span></h3>
+          <h3 class="hidden">Zip Code: <span id="zip"></span></h3>
 
           <!-- Element below is hidden so that I can save the value from ajax request
                I think there should be a better way to do this, but at this time 
@@ -89,14 +90,20 @@
         <p id="celcius" class="temparatures"></p>
         <p id="farenheit" class="temparatures"></p>  
           
-          
-                <label for="slider">Flip Switch</label>
-          
-                <select name="slider" id="slider" data-role="slider">
-                  <option value="farenheit">&deg;F</option>
-                  <option value="celcius">&deg;C</option>
-                </select>  
-   
+                <div class="row">
+                  <label for="slider" class="text-center">Flip Switch</label>
+                </div>      <!-- / End row -->
+
+
+
+                <div class="row">
+                  <div class="col-lg-offset-5 col-md-offset-4 col-sm-offset-4 col-xs-offset-3">
+                      <select name="slider" id="slider" class="" data-role="slider">
+                        <option value="farenheit">&deg;F</option>
+                        <option value="celcius">&deg;C</option>
+                      </select>  
+                  </div>
+                </div> <!-- /end row -->
 
           
        </div> <!-- End weather info   -->
